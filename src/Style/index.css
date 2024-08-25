@@ -1,0 +1,14 @@
+html {
+    background-color: #282828;
+}
+
+h3 {
+    color: whitesmoke;
+}
+
+.tiles { 
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.4rem;
+}

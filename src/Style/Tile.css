@@ -1,0 +1,32 @@
+.singleTile {
+    border: 2px solid none;
+    background-color: #3f3f3f;
+    border-radius: 1rem;
+    max-width: 20rem;
+    min-height: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin: 0.5rem 0 2.5rem 0;
+    color: whitesmoke
+}
+
+.singleNumber{
+    color: whitesmoke;
+    font-size: xx-large;
+
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }

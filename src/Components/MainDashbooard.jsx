@@ -34,11 +34,9 @@ export default function MainDashbooard() {
       setIsFetching(false);
     }
 
-    // filterItem = useCallback(
-    //     function filterItem(filter){
-    //         fetchAllCarData();
-    //     }
-    // )
+    function filterItems (value){
+
+    }
 
     fetchAllCarData();
   }, []);

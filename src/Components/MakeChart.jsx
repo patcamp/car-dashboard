@@ -1,8 +1,10 @@
 import { BarChart } from "@mui/x-charts/BarChart";
+import Modal from '../Utils/Modal.jsx'
 import Button from "../Utils/Button.jsx";
-import { useEffect, useState } from "react";
-import Loader from "../Utils/Loader.jsx";
+import { useState } from "react";
 import { HiAdjustmentsHorizontal } from "react-icons/hi2";
+import { TileType } from "../TileTypeEnum.ts";
+import Filter from "../Utils/Filter.jsx";
 
 const chartSetting = {
   xAxis: [
@@ -17,15 +19,31 @@ const chartSetting = {
 const valueFormatter = (value) => `${value}`;
 
 export default function MakeChart({ make, filter }) {
-  function filterItems() {}
 
-  console.log(make);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+  const [displayCount, setDisplayCount] = useState(make.length)
+
+  const handleSliderChange = (value) => {
+    setDisplayCount(Number(value));
+  };
+
   return (
     <div>
-      <Button>
+      <Button onClick={openModal}>
         <HiAdjustmentsHorizontal />
       </Button>
-      {make.length ? (
+      <Modal isOpen={isModalOpen} onClose={closeModal}> 
+        <Filter tileType={TileType.MAKE} 
+        value={displayCount}
+        onChange={handleSliderChange}
+        min={1}
+        max={make.length}/>
+      </Modal>
+      {
+      make.length ? (
         <BarChart
           dataset={make}
           yAxis={[{ scaleType: "band", dataKey: "Make" }]}
